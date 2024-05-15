@@ -1,44 +1,70 @@
 import React from 'react'
 import GenderCheckBox from '../../components/signup/GenderCheckBox'
+import { Link } from 'react-router-dom'
+import {useState} from 'react'
+import useSignup from '../../hooks/useSignup'
 
 function SignUp() {
+    const [inputs , setInputs] = useState({
+        fullName: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        gender: ''
+    });
+    const {loading,signup} = useSignup();
+    const handleCheckBoxChange = (gender) =>{
+        setInputs({...inputs,gender});
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await signup(inputs);
+    }
   return (
     <div className="flex flex-col item-center justify-center min-w-96 mx-auto">
         <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-15">
             <h1 className="text-3xl font-semibold text-center text-gray-300">Sign Up
                 <span className="text-blue-500 "> Chatify</span>
             </h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label className="label p-2">
                         <span className='text-base text-white label-text'>Full Name</span>
                     </label>
-                    <input type="text" placeholder="Enter Your full name" className="w-full input input-bordered h-10" />
+                    <input type="text" placeholder="Enter Your full name" className="w-full input input-bordered h-10" 
+                    value={inputs.fullName} onChange={(e)=>setInputs({...inputs,fullName:e.target.value})} />
                 </div>
                 <div>
                     <label className="label p-2">
                         <span className='text-base text-white label-text'>Username</span>
                     </label>
-                    <input type="text" placeholder="Enter Username" className="w-full input input-bordered h-10" />
+                    <input type="text" placeholder="Enter Username" className="w-full input input-bordered h-10" 
+                    value={inputs.username} onChange={(e)=>setInputs({...inputs,username:e.target.value})}/>
                 </div>
                 <div>
                     <label className="label p-2">
                         <span className='text-base text-white label-text'>Password</span>
                     </label>
-                    <input type="text" placeholder="Enter Password" className="w-full input input-bordered h-10" />
+                    <input type="password" placeholder="Enter Password" className="w-full input input-bordered h-10"
+                    value={inputs.password} onChange={(e)=>setInputs({...inputs,password:e.target.value})}
+                    />
                 </div>
                 <div>
                     <label className="label p-2">
                         <span className='text-base text-white label-text'>Confirm Password</span>
                     </label>
-                    <input type="text" placeholder="Confirm Password" className="w-full input input-bordered h-10" />
+                    <input type="password" placeholder="Confirm Password" className="w-full input input-bordered h-10"
+                    value={inputs.confirmPassword} onChange={(e)=>setInputs({...inputs,confirmPassword:e.target.value})}
+                    />
                 </div>
-                <GenderCheckBox/>
-                <a href="#" className='test-sm text-white  hover:text-blue-500 mt-2 inline-block'>
+                <GenderCheckBox onCheckBoxChange={handleCheckBoxChange} selectedGender={inputs.gender}/>
+                <Link to="/login" className='test-sm text-white  hover:text-blue-500 mt-2 inline-block'>
                     Already have an account? Login
-                </a>
+                </Link>
                 <div>
-                    <button className="btn  btn-block btn-sm mt-2">Sign Up</button>
+                    <button className="btn  btn-block btn-sm mt-2" disabled={loading}>
+                        {loading ? <span className='loading loading-spinner'></span> : 'Sign Up'}
+                    </button>
                 </div>
             </form>
         </div>
