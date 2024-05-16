@@ -3,10 +3,7 @@
 @tailwind utilities;
 
 body{
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('/bg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: rgb(236, 247, 255);
 }
 
 ::-webkit-scrollbar{
@@ -16,10 +13,11 @@ body{
 
 ::-webkit-scrollbar-track{
   cursor: pointer;
-  background: #6f6f6f;
+  background: #c7e6ff;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb{
-  background: #121212;
+  background: #679aff;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover{

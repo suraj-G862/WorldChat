@@ -24,11 +24,11 @@ const SearchInput = () => {
   return (
     <form onSubmit={handlesubmit} className='flex items-center gap-2 mt-3'>
         <input type="text" placeholder='Search..'
-         className='input input-bordered rounded-full'
+         className='input  input-bordered rounded-full'
          value={search}
          onChange={(e) => setSearch(e.target.value)}
          />
-        <button type='submit' className='btn btn-circle bg-sky-500 text-white border-hidden'>
+        <button type='submit' className='btn btn-circle hover:bg-sky-500 bg-white border-hidden'>
            <IoMdSearch className='w-6 h-6' />
         </button>
     </form>
@@ -37,19 +37,3 @@ const SearchInput = () => {
 
 export default SearchInput
 
-
-// import React from 'react'
-// import { IoMdSearch } from "react-icons/io";
-
-// const SearchInput = () => {
-//   return (
-//     <form className='flex items-center gap-2 mt-3'>
-//         <input type="text" placeholder='Search..' className='input input-bordered rounded-full' />
-//         <button type='submit' className='btn btn-circle bg-sky-500 text-white border-hidden'>
-//            <IoMdSearch className='w-6 h-6' />
-//         </button>
-//     </form>
-//   )
-// }
-
-// export default SearchInput

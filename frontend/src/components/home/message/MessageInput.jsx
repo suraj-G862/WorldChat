@@ -13,16 +13,16 @@ const MessageInput = () => {
     setMessage(''); 
   }
   return (
-    <form className='px-4 my-3' onSubmit={handleSubmit}>
-        <div className='w-full relative'>
+    <form className='px-4 my-3 ' onSubmit={handleSubmit}>
+        <div className='w-full relative '>
             <input type="text" 
-            className='border  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 text-white'
+            className='border  text-sm rounded-lg block w-full p-2.5  border-gray-600'
             placeholder='Send Message' 
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             />
-            <button type='submit' className='absolute inset-y-0 end-0 flex items-center pe-3 text-white w-8 h-8 rounded-full m-auto mr-1  hover:bg-blue-500'>
-               {loading ? <div  className='loading loading-spinner'></div> :  <BiSend className='w-5 h-5'/> }
+            <button type='submit' className='absolute inset-y-0 end-0 flex items-center pe-3'>
+               {loading ? <div  className='loading loading-spinner'></div> : <div className="w-8 h-8 rounded-full p-1 hover:bg-blue-400"> <BiSend className='w-5 h-5 cursor-pointer'/> </div>}
            </button>
         </div>
     </form>
@@ -30,21 +30,3 @@ const MessageInput = () => {
 }   
 
 export default MessageInput
-
-// import React from 'react'
-// import { BiSend } from "react-icons/bi";
-
-// const MessageInput = () => {
-//   return (
-//     <form className='px-4 my-3'>
-//         <div className='w-full relative'>
-//             <input type="text" className='border  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 text-white' placeholder='Send Message' />
-//             <button type='submit' className='absolute inset-y-0 end-0 flex items-center pe-3 text-white w-8 h-8 rounded-full m-auto mr-1  hover:bg-blue-500'>
-//                <BiSend className='w-5 h-5'/>
-//            </button>
-//         </div>
-//     </form>
-//   )
-// }   
-
-// export default MessageInput

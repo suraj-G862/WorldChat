@@ -5,9 +5,11 @@ import useLogout from '../../../hooks/useLogout';
 const LogoutButton = () => {
   const {loading, logout} = useLogout()
   return (
-    <div className='mt-auto'>
+    <div >
       {!loading ? (
-        <CiLogout className='w-6 h-6 text-white cursor-pointer' onClick={logout} />
+        <div className="w-8 h-8 rounded-full p-1 hover:bg-blue-400">
+        <CiLogout className='w-6 h-6 cursor-pointer' onClick={logout} />
+        </div>
       ) : (
         <span className='loading loading-spinner'></span>
       )
