@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect , useState } from 'react'
 import Messages from './Messages'
 import MessageInput from './MessageInput'
 import { TiMessages } from "react-icons/ti";
@@ -11,9 +11,9 @@ const MessageContainer = () => {
   const handleback = () => {
     setSelectedConversation(null);
   };
-  const wideview = window.innerWidth >= 700;
+  const wideview = window.innerWidth >= 786;
   return (
-    <div className="w-full flex flex-col h-screen">
+    <div className={`w-full flex flex-col h-[101vh] -mt-8 `}>
       {!selectedConversation ? (
         <NoChatselected />
       ) : (
@@ -31,7 +31,7 @@ const MessageContainer = () => {
           <div className="flex-1 overflow-y-auto">
             <Messages />
           </div>
-          <div className='mb-5'>
+          <div className='mb-0'>
             <MessageInput />
           </div>
         </>

@@ -22,7 +22,10 @@ const MessageInput = () => {
             onChange={(e) => setMessage(e.target.value)}
             />
             <button type='submit' className='absolute inset-y-0 end-0 flex items-center pe-3'>
-               {loading ? <div  className='loading loading-spinner'></div> : <div className="w-8 h-8 rounded-full p-1 hover:bg-blue-400"> <BiSend className='w-5 h-5 cursor-pointer'/> </div>}
+               {loading ? <div  className='loading loading-spinner'></div> :
+                <div className="w-8 h-8 rounded-full  hover:bg-blue-400"> 
+                    <BiSend className='w-5 h-5 mt-1.5 ml-1.5 cursor-pointer'/>
+                </div>}
            </button>
         </div>
     </form>

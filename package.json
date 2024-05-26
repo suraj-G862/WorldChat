@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon backend/server.js",
-    "start":"node backend/server.js",
+    "start": "node backend/server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "type": "module",
@@ -19,6 +19,9 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.4",
+    "react-swipeable": "^7.0.1",
+    "react-swipeable-views": "^0.14.0",
+    "react-swipeable-views-react-18-fix": "^0.14.1",
     "socket.io": "^4.7.5"
   },
   "devDependencies": {
