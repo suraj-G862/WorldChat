@@ -11,3 +11,16 @@ export const getUsersForSidebar = async (req,res) => {
         res.status(500).json({error:"Internal  Server Error"});
     }
 }
+
+export const uploadImage  = async (req, res) => {
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+    const { ImageName ,userId } = req.body; 
+    const user = await User.findOneAndUpdate( { _id: userId }, { profilePicture: req.file.filename },{} );
+    res.status(200).json({
+      message: 'File uploaded successfully',
+      imageUrl: req.file.path,
+      public_id: req.file.filename, 
+    });
+  }

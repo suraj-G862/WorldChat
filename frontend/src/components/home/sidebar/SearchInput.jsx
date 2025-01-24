@@ -24,7 +24,6 @@ const SearchInput = (props) => {
   return (
     <form onSubmit={handlesubmit} className='flex items-center  mt-3'>
         <input type="text" placeholder='Search..'
-        //  className='input input-bordered rounded-full'
          className='w-full py-2 px-4 text-gray-700 bg-white border border-gray-300 rounded-full focus:outline-none'
          value={search}
          onChange={(e) =>{
@@ -32,7 +31,6 @@ const SearchInput = (props) => {
           props.getSearch(e.target.value);
          }}
          />
-        {/* <button type='submit' className='btn btn-circle hover:bg-sky-500 bg-white border-hidden'> */}
         <button type='submit' className='w-14 h-10 rounded-full ml-2 hover:bg-sky-500 bg-white border-hidden'>
            <IoMdSearch className='ml-2 w-6 h-6'/>
         </button>

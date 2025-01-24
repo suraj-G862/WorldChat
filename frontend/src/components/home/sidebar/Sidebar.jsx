@@ -15,7 +15,8 @@ const Sidebar = () => {
         <div className="py-2 mb-2 flex">
            <div className="mt-3.5 mr-4" ><LogoutButton /></div>
            <SearchInput getSearch={getSearch}/>
-           {/* <div className=' left-20 relative' ><UserProfile/></div> */}
+           <div className='left-2 relative top-2' ><UserProfile/></div>
+           
         </div>
         <div className="divider px-3"></div>
         <div className="flex-1  overflow-y-auto"> <Conversations search={search} /></div>

@@ -4,26 +4,30 @@ import MessageInput from './MessageInput'
 import { TiMessages } from "react-icons/ti";
 import  useConversation  from '../../../zustand/useConversation';
 import { useAuthContext } from '../../../context/AuthContext'
+import Image from '../sidebar/Image';
 import { IoArrowBack } from "react-icons/io5";
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
+  const wideview = window.innerWidth >= 786;
+
   const handleback = () => {
     setSelectedConversation(null);
   };
-  const wideview = window.innerWidth >= 786;
+
   return (
-    <div className={`w-full flex flex-col h-[101vh] -mt-8 `}>
+    <div className={`w-full flex flex-col h-[101vh] -mt-8 -mr-4 `}>
       {!selectedConversation ? (
         <NoChatselected />
       ) : (
         <>
-          <div className="py-2 mb-2 mt-8 flex bg-blue-400">
+          <div className="py-2 mb-2 mt-8 flex bg-blue-400 h-16 ">
             {!wideview ? (<IoArrowBack className="w-4 h-4 my-auto ml-1" onClick={handleback}/>
             ) : ( "")}
             <span className="label-text">
-              <img src={selectedConversation.profilePicture} className="h-10 w-10 mx-3" alt="Profile"/>
-            </span>
+              {/* <img src={selectedConversation.profilePicture} className="h-10 w-10 mx-3" alt="Profile"/> */}
+              <Image conversation ={selectedConversation}/>
+            </span> 
             <span className="text-gray-900 font-bold my-auto">
               {selectedConversation.fullName}
             </span>
