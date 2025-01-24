@@ -13,7 +13,7 @@ import {dotenv} from './config/dotenv.js';
 
 const PORT = process.env.PORT || 5000;
 
-deployment
+// deployment
 const __dirname = path.resolve();
 
 app.use(cors());
