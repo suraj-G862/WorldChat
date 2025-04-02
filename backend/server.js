@@ -14,7 +14,7 @@ import {dotenv} from './config/dotenv.js';
 const PORT = process.env.PORT || 5000;
 
 // deployment
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 app.use(cors());
 app.use(express.json());
@@ -29,19 +29,20 @@ app.use("/api/users",userRoutes);
 
 
 
+
 //deployment
-app.use(express.static(path.join(__dirname,'/frontend/dist')));
-app.get('*',(req,res)=>{
-      res.sendFile(path.join(__dirname,"frontend","dist","index.html"));
-})
-server.listen(PORT,()=>{ 
-      connectToMongoDB();
-      console.log(`Server is running on port ${PORT}`); 
-})
-
-
-//development
-// app.listen(PORT,()=>{ 
+// app.use(express.static(path.join(__dirname,'/frontend/dist')));
+// app.get('*',(req,res)=>{
+//       res.sendFile(path.join(__dirname,"frontend","dist","index.html"));
+// })
+// server.listen(PORT,()=>{ 
 //       connectToMongoDB();
 //       console.log(`Server is running on port ${PORT}`); 
 // })
+
+
+//development
+app.listen(PORT,()=>{ 
+      connectToMongoDB();
+      console.log(`Server is running on port ${PORT}`); 
+})

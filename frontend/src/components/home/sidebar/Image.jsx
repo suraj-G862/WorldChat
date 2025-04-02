@@ -18,6 +18,7 @@ const Image = ({conversation}) =>{
             setdefaultImage(true);
         }
     }, []);
+
     const img = conversation
       ? cld
           .image(ImageName)
@@ -26,13 +27,14 @@ const Image = ({conversation}) =>{
           .resize(auto().gravity(autoGravity()).width(50).height(50))
       : null;
   return (
-    <div className="w-12 rounded-full">
+    <div className="w-12">
         {defaultImage ?
-        <img src={conversation.profilePicture} alt="profile picture" className="w-12 rounded-full" /> :
-         img && <AdvancedImage cldImg={img} alt="User profile picture" /> 
+        <img src={conversation.profilePicture} alt="profile picture" className="w-12" /> :
+         img && <AdvancedImage cldImg={img} alt="User profile picture" className="rounded-full" /> 
       }
     </div>
   )
 }
+
 
 export default Image

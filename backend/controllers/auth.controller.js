@@ -36,7 +36,8 @@ export const signup = async (req,res)=>{
                _id:newUser._id,
                fullName:newUser.fullName,
                username:newUser.username, 
-               profilePicture:newUser.profilePicture
+               profilePicture:newUser.profilePicture,
+               friends:newUser.friends
            })
        }
        else{
@@ -61,8 +62,8 @@ export const login = async (req,res)=>{
             _id:user._id,
             fullName:user.fullName,
             username:user.username,
-            profilePicture:user.profilePicture
-        
+            profilePicture:user.profilePicture,
+            friends:user.friends
         })
 
    }

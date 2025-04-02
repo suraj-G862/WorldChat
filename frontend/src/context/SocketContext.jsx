@@ -16,8 +16,8 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
          if(authUser){
-            const socket = io("https://worldchat-54nd.onrender.com",{    //for deployment
-            // const socket = io("http://localhost:5000",{    //for development
+            // const socket = io("https://worldchat-54nd.onrender.com",{    //for deployment
+            const socket = io("http://localhost:5000",{    //for development
                 query:{
                     userId: authUser._id
                 }

@@ -24,3 +24,16 @@ export const uploadImage  = async (req, res) => {
       public_id: req.file.filename, 
     });
   }
+
+export const addFriend = async (req,res) => {
+    try{
+        const { userId } = req.params;
+        const { friendId } = req.body;
+        const user = await User.findOneAndUpdate( { _id: userId }, { $push: { friends: friendId } }, { new: true } ).select("-password");
+        res.status(200).json(user);
+    }
+    catch (error) {
+        console.log("Error in addFriend controller",error.message);
+        res.status(500).json({error:"Internal  Server Error"});
+    }
+}
